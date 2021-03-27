@@ -106,11 +106,11 @@ def scrape():
             browser.back()
 
     #Adding everything into dictionaries/lists
-    nasa_data = []
-    nasa_data.append(news_dict)
-    nasa_data.append(jpl_dict)
-    nasa_data.append(mars_dict)
-    nasa_data.append(hemisphere_dict)
+    nasa_data = {}
+    nasa_data.update(news_dict)
+    nasa_data.update(jpl_dict)
+    nasa_data.update(mars_dict)
+    nasa_data.update(hemisphere_dict)
 
     #Close browser with splinter
     browser.quit()
