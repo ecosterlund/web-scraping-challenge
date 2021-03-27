@@ -1,19 +1,108 @@
 <!DOCTYPE html>
+<html lang="en">
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+  <!-- CSS -->
+  <!--link rel="stylesheet" href="./style.css" type="text/css"-->
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='./style.css') }}">
+</head>
 
+<body>
+  <div class="container-fluid row">
+    <div id='stars'></div>
+    <div id='stars2'></div>
+    <div id='stars3'></div>
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <br>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
 
+    <!-- Recent news -->
+    <div class="container row">
+      <div class="col-md-12 text-size">
+        <h1>Latest Mars News</h1>
+        <h2 class="heading">{{mars_info.recent_news}}</h2>
+        <p>{{mars_info.recent_paragraph}}</p>
+      </div>
+    </div>
+
+    <!--Featured Image-->
+    <div class="container-fluid row text-size">
+      <div class="row">
+        <h1 class="col-sm-6 col-lg-6" style="padding-left: 30px;">Featured Mars Image</h1>
+        <h1 class="col-sm-6 col-lg-6">Mars Facts</h1>
+      </div>
+      <div class="col-sm-6 col-lg-6 image">
+        <img src="{{ mars_info.featured_jpl_image }}" alt="" width="100%">
+      </div>
+      <div class="col-sm-6 col-lg-6 image">
+        {{ mars_info.mars_fact | safe }}
+      </div>
+    </div>
+    <br>
+    <br>
     
-    <body>
+    <!--Mars Hemispheres Images-->
+    <div class="text-center text-size">
+      <h1>Mars Hemispheres</h1>
+      <hr>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="thumbnail">
+            <a href="#" target="_blank">
+              <img src="{{ mars_info.img_url0 }}" alt="" style="width:100%">
+              <div class="caption">
+                <h3>{{ mars_info.title0 }}</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="thumbnail">
+            <a href="#" target="_blank">
+              <img src="{{ mars_info.img_url1 }}" alt="" style="width:100%">
+              <div class="caption">
+                <h3>{{ mars_info.title1 }}</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="thumbnail">
+            <a href="#" target="_blank">
+              <img src="{{ mars_info.img_url2 }}" alt="" style="width:100%">
+              <div class="caption">
+                <h3>{{ mars_info.title2 }}</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="thumbnail">
+            <a href="#" target="_blank">
+              <img src="{{ mars_info.img_url3 }}" alt="" style="width:100%">
+              <div class="caption">
+                <h3>{{ mars_info.title3 }}</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    </body>
+    </div>
+    
+
+  </div>
+</body>
+
 </html>
