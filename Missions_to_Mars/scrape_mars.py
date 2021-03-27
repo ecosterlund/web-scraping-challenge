@@ -37,7 +37,7 @@ def scrape():
             pass
         
     recent_news = news_title[0]
-    recent_paragraph = news_paragraph[1]
+    recent_paragraph = news_paragraph[0]
     news_dict = {}
     news_dict['news_title'] = recent_news
     news_dict['news_paragraph'] = recent_paragraph
@@ -100,8 +100,8 @@ def scrape():
             img_url = soup.find(class_='downloads')
                 
             hemisphere_dict = {}
-            hemisphere_dict['title'] = title
-            hemisphere_dict['img_url'] = img_url.a['href']
+            hemisphere_dict['title{0}'.format(i)] = title
+            hemisphere_dict['img_url{0}'.format(i)] = img_url.a['href']
             hemisphere_image_urls.append(hemisphere_dict)
             browser.back()
 
