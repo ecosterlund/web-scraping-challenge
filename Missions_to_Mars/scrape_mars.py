@@ -37,10 +37,10 @@ def scrape():
             pass
         
     recent_news = news_title[0]
-    recent_paragraph = news_paragraph[0]
+    recent_paragraph = news_paragraph[1]
     news_dict = {}
-    news_dict['news title'] = recent_news
-    news_dict['news paragraph'] = recent_paragraph
+    news_dict['news_title'] = recent_news
+    news_dict['news_paragraph'] = recent_paragraph
 
     #-----------------------JPL SCRAPE------------------------
     # JPL Website
@@ -57,7 +57,7 @@ def scrape():
     for image in main_image:
         featured_image_url = f"https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/{image['src']}"
     jpl_dict = {}
-    jpl_dict['img url'] = featured_image_url
+    jpl_dict['jpl_url'] = featured_image_url
     
 
     #---------------------------MARS FACTS SCRAPE------------------
@@ -71,7 +71,7 @@ def scrape():
     # Converted data to HTML table string
     html_mars_table = mars_table.to_html()
     mars_dict = {}
-    mars_dict['mars table'] = html_mars_table
+    mars_dict['mars_table'] = html_mars_table
 
     #-------------------HEMISPHERES SCRAPE-------------------------
     hemispheres_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
